@@ -1,0 +1,9 @@
+{
+  "name": "InterView Alpha",
+  "description": "The ultimate stealth assistant for technical interviews. Real-time transcription, screen analysis, and AI-powered guidance.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "display-capture"
+  ]
+}
