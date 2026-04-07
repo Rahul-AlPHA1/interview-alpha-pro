@@ -1,19 +1,34 @@
 # InterView Alpha - AI Interview Assistant
 
-InterView Alpha is a high-stealth, AI-powered interview assistant designed to help developers ace technical interviews with real-time transcription, vision analysis, and code optimization.
+InterView Alpha is an advanced AI-powered interview helper designed to help developers prepare for and ace technical interviews. It provides real-time guidance, mock interviews, and intelligent code assistance based on your resume and target job descriptions.
 
 ## 🚀 Features
 
-- **Real-time Transcription**: Isolate and transcribe interview questions as they happen.
-- **Vision Engine**: Analyze screen content (MCQs, diagrams, code) using advanced vision models.
-- **Stealth Camouflage**: Instantly hide the UI behind a Calculator, Jira board, or Developer Docs.
-- **RAG Knowledge Base**: Auto-index interview sessions and search your local knowledge base.
+- **Mock Interviews**: Practice with AI personas tailored to specific roles and difficulties.
+- **AI Code Pad**: Write, execute, and optimize code with real-time AI feedback.
+- **Resume Match & Analysis**: Compare your resume against job descriptions to extract key talking points.
+- **Knowledge Base (RAG)**: Auto-index your interview prep materials and search your local knowledge base.
 - **Multi-Provider Support**: Connect to Groq, OpenAI, Anthropic, Gemini, or local Ollama instances.
-- **Command Palette**: Quick navigation and actions via `Ctrl+K`.
 
-## 💻 Windows Setup Instructions
+## 📝 Resume Integration (How to add this to your Resume)
 
-To run InterView Alpha locally on Windows:
+If you want to showcase this project on your resume, here are some professional bullet points you can use:
+
+*   **Project: InterView Alpha — AI-Powered Interview Assistant**
+*   Developed a comprehensive AI interview preparation platform using React, TypeScript, and Electron, integrating multiple LLM providers (OpenAI, Anthropic, Gemini) for real-time mock interviews and code evaluation.
+*   Engineered a Retrieval-Augmented Generation (RAG) knowledge base to index and query technical concepts, improving interview prep efficiency.
+*   Built an interactive AI Code Pad with real-time execution and optimization feedback, alongside a Resume-to-JD matching engine to generate targeted talking points.
+
+## 🔮 Future Enhancements
+
+- Integration with LeetCode/HackerRank for automated problem fetching.
+- Advanced voice analytics (tone, pacing, and filler word detection).
+- Peer-to-peer mock interview matching system.
+- Automated post-interview feedback reports and study guides.
+
+## 💻 Setup Instructions
+
+To run InterView Alpha locally:
 
 ### 1. Prerequisites
 - **Node.js**: Download and install from [nodejs.org](https://nodejs.org/) (LTS version recommended).
@@ -48,17 +63,6 @@ To create a production-ready build:
 npm run build
 ```
 The output will be in the `dist/` folder.
-
-## ⌨️ Shortcuts
-
-- **Ctrl+K**: Open Command Palette
-- **Ctrl+Shift+X**: Toggle Stealth Camouflage (Panic Key)
-- **Esc**: Close overlays/modals
-
-## 🛡️ Stealth Tips
-- Use **Jira Mode** or **Docs Mode** during interviews to make the app look like part of your workflow.
-- Adjust **Backdrop Blur** in Settings to blend the app with your desktop background.
-- Use **Floating Mode** for a minimalist, non-intrusive interface.
 
 ---
 *Developed by Rahool Gir.*

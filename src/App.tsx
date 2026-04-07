@@ -103,6 +103,21 @@ class VectorStore {
 const vectorStore = new VectorStore();
 
 export default function App() {
+  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
+
+  useEffect(() => {
+    const hasSeenWelcome = localStorage.getItem('alpha_has_seen_welcome');
+    if (!hasSeenWelcome) {
+      setShowWelcomePopup(true);
+    }
+  }, []);
+
+  const closeWelcomePopup = () => {
+    localStorage.setItem('alpha_has_seen_welcome', 'true');
+    setShowWelcomePopup(false);
+    setActiveTab('setup');
+  };
+
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [commandSearch, setCommandSearch] = useState('');
@@ -2027,6 +2042,53 @@ app.on('window-all-closed', () => {
       {isCommandPaletteOpen && <CommandPalette />}
       {isCalculatorMode && <StealthCamouflage />}
       {isCodeSandboxOpen && <CodeSandbox />}
+
+      {/* WELCOME SETUP POPUP */}
+      {showWelcomePopup && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div className="bg-slate-900 border border-indigo-500/30 rounded-3xl max-w-2xl w-full p-8 shadow-[0_0_50px_rgba(99,102,241,0.1)] animate-in zoom-in-95 duration-300">
+            <div className="flex items-center justify-center w-16 h-16 bg-indigo-500/10 rounded-2xl mb-6 mx-auto border border-indigo-500/20">
+              <Zap className="w-8 h-8 text-indigo-400" />
+            </div>
+            
+            <h2 className="text-3xl font-black text-white text-center mb-2">Welcome to InterView Alpha</h2>
+            <p className="text-slate-400 text-center mb-8">Your AI-powered interview assistant is almost ready. Let's get you set up in 3 easy steps.</p>
+            
+            <div className="space-y-4 mb-8">
+              <div className="flex gap-4 items-start p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
+                <div className="flex-shrink-0 w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-full flex items-center justify-center font-bold">1</div>
+                <div>
+                  <h3 className="text-white font-bold mb-1">Get a Free API Key</h3>
+                  <p className="text-sm text-slate-400">We recommend Groq for the fastest, free AI responses. <a href="https://console.groq.com/keys" target="_blank" rel="noreferrer" className="text-indigo-400 hover:underline">Click here to get a Groq API Key</a>.</p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4 items-start p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
+                <div className="flex-shrink-0 w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-full flex items-center justify-center font-bold">2</div>
+                <div>
+                  <h3 className="text-white font-bold mb-1">Go to Setup</h3>
+                  <p className="text-sm text-slate-400">Click the button below to navigate to the Setup & API tab.</p>
+                </div>
+              </div>
+              
+              <div className="flex gap-4 items-start p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
+                <div className="flex-shrink-0 w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-full flex items-center justify-center font-bold">3</div>
+                <div>
+                  <h3 className="text-white font-bold mb-1">Paste & Save</h3>
+                  <p className="text-sm text-slate-400">Paste your key, click "Test & Save", and you're ready to ace your interviews!</p>
+                </div>
+              </div>
+            </div>
+            
+            <button 
+              onClick={closeWelcomePopup}
+              className="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold text-lg transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] flex items-center justify-center gap-2"
+            >
+              Let's Get Started <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* ADVANCED FLOATING UI (Principal Engineer Edition) */}
       {isFloatingMode && (
